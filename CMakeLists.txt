@@ -25,7 +25,7 @@ endif ()
 project(popl_example)
 
 set(PROJECT_DESCRIPTION "Header-only C++ program options parser library")
-set(PROJECT_URL "https://github.com/badaix/popl")
+set(PROJECT_URL "https://github.com/WinterWind33/popl20")
 
 option(BUILD_EXAMPLE "Build example (build popl_example demo)" ON)
 option(BUILD_TESTS "Build tests" ON)

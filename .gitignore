@@ -473,6 +473,5 @@ FodyWeavers.xsd
 
 ### Custom rules ###
 *.*~
-.vscode
 popl_example
 build

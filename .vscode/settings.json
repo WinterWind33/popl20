@@ -1,0 +1,9 @@
+{
+    "C_Cpp.clang_format_style": "${workspaceFolder}/.clang-format",
+    "C_Cpp.default.cppStandard": "c++20",
+
+    "files.eol": "\n",
+    "files.encoding": "utf8",
+    "files.trimTrailingWhitespace": true,
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools"
+}

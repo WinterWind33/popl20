@@ -5,11 +5,26 @@
             "label": "[CMAKE] Configure all",
             "type": "shell",
             "options": {
-                "cwd": "${workspaceFolder}/build",
+                "cwd": "${workspaceFolder}/build"
             },
             "command": "cmake",
             "args": [
                 ".."
+            ],
+            "group": "build"
+        },
+        {
+            "label": "[BUILD][Debug] Build All",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            "command": "cmake",
+            "args": [
+                "--build",
+                ".",
+                "--config",
+                "Debug"
             ],
             "group": "build"
         }

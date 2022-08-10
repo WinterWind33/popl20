@@ -12,3 +12,5 @@ repos:
       - id: trailing-whitespace
       - id: mixed-line-ending
         args: [--fix=lf]
+      - id: check-yaml
+      - id: fix-byte-order-marker

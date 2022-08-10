@@ -12,10 +12,20 @@
 
 cmake_minimum_required(VERSION 3.18)
 
+# ================ COMPILATION CONFIGURATIONS ================
+# This is required as some compilers don't support concepts
+# automatically (like g++).
+if(NOT MSVC)
+    message("[INFO] => Compiling with -fconcepts.")
+    add_compile_options(-fconcepts)
+endif()
+
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_EXTENSIONS OFF)
-set(PROJECT_VERSION "1.3.0")
 
+# ============================================================
+
+set(PROJECT_VERSION "1.3.0")
 project(popl_example)
 
 set(PROJECT_DESCRIPTION "Header-only C++ program options parser library")

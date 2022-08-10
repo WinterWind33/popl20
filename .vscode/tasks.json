@@ -27,6 +27,23 @@
                 "Debug"
             ],
             "group": "build"
+        },
+        {
+            "label": "[BUILD][Debug] Build Tests",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            "command": "cmake",
+            "args": [
+                "--build",
+                ".",
+                "--target",
+                "popl_test",
+                "--config",
+                "Debug"
+            ],
+            "group": "build"
         }
     ]
 }

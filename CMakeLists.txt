@@ -10,18 +10,11 @@
 # This software may be modified and distributed under the terms
 # of the MIT license.  See the LICENSE file for details.
 
-cmake_minimum_required(VERSION 2.4)
+cmake_minimum_required(VERSION 3.18)
 
-if (CMAKE_VERSION VERSION_LESS "3.1")
-    if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-        set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
-    endif ()
-else ()
-    set (CMAKE_CXX_STANDARD 11)
-    set(CMAKE_CXX_EXTENSIONS OFF)
-    set(PROJECT_VERSION "1.3.0")
-endif ()
-
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(PROJECT_VERSION "1.3.0")
 
 project(popl_example)
 

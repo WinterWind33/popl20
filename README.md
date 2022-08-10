@@ -1,4 +1,4 @@
-# popl
+# popl20
 
 **!!NOTE: This is a fork of [popl repo](https://github.com/badaix/popl) and it's WIP!!**
 
@@ -24,12 +24,12 @@ popl is a C++ command line arguments parser that supports the same set of option
 
 Key object is `OptionParser`, which is populated with different option types:
 
-* `Value<T>` Option with argument  
-* `Switch` Option without argument  
-* `Implicit<T>` Option with optional argument (using an implicit value if no argument is given)  
+* `Value<T>` Option with argument
+* `Switch` Option without argument
+* `Implicit<T>` Option with optional argument (using an implicit value if no argument is given)
 
-Next, OptionParser will parse the command line (by passing `argc` and `argv`) and fill the option objects.  
-Each option type is initialized with a short option, long option and a help message.  
+Next, OptionParser will parse the command line (by passing `argc` and `argv`) and fill the option objects.
+Each option type is initialized with a short option, long option and a help message.
 
 ### Basic usage example
 
@@ -68,8 +68,8 @@ Every option type can have a default value:
 auto string_option = op.add<Value<std::string>>("s", "string", "some string value", "default value");
 ```
 
-if not set on command line, `string_option->is_set()` will be `false` and `string_option->value()` will be `default value` 
-  
+if not set on command line, `string_option->is_set()` will be `false` and `string_option->value()` will be `default value`
+
 ### Assigning to a variable
 
 The argument of an option can be directly assigned to a variable:
@@ -79,8 +79,8 @@ std::string s;
 /*auto string_option =*/ op.add<Value<std::string>>("s", "string", "some string value", "default value", &s);
 ```
 
-The variable `s` will carry the same value as `string_option.value()`, and thus the declaration of `string_option` can be omitted.  
-  
+The variable `s` will carry the same value as `string_option.value()`, and thus the declaration of `string_option` can be omitted.
+
 ### Attributes of an option
 
 Options have an `Attribute`: they can be hidden in the auto-created help message, or classified as "advanced", or "expert":
@@ -91,7 +91,7 @@ auto advanced_int  = op.add<Value<int>, Attribute::advanced>("i", "integer", "ad
 auto hidden_bool   = op.add<Swtich, Attribute::hidden>("", "hidden", "hidden flag");
 ```
 
-Now `cout << op.help()` (same as `cout << op`) will not show the hidden or advanced option, while `cout << op.help(Attribute::advanced)` will show the advanced option. The hidden one is never shown to the user.  
+Now `cout << op.help()` (same as `cout << op`) will not show the hidden or advanced option, while `cout << op.help(Attribute::advanced)` will show the advanced option. The hidden one is never shown to the user.
 Also an option can be flagged as mandatory by assigning `Attribute::required`
 
 ## Example

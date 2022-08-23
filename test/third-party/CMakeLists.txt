@@ -16,7 +16,25 @@ if(USE_CATCH2_AS_TESTING_FRAMEWORK)
 
     set(CATCH_DEVELOPMENT_BUILD ON)
 
+    set_target_properties(Catch2
+        PROPERTIES
+        ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin"
+        LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin"
+        RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin"
+    )
+
+    set_target_properties(Catch2WithMain
+        PROPERTIES
+        ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin"
+        LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin"
+        RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin"
+    )
+
     # We add the include directory to popl_test target so its files
     # can include Catch2 headers.
     target_include_directories(popl_test PUBLIC "Catch2/src")
+
+    # For now we don't need our implementation of the entry point so we
+    # can use the Catch2 one.
+    target_link_libraries(popl_test PRIVATE Catch2::Catch2WithMain)
 endif()

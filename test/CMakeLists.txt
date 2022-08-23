@@ -1,13 +1,17 @@
-# Prepare "Catch" library for other executables
-set(CATCH_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR})
-add_library(Catch INTERFACE)
-target_include_directories(Catch INTERFACE ${CATCH_INCLUDE_DIR})
+# Copyright (C) 2022 Andrea Ballestrazzi
 
-# Make test executable
+# ================ Test Executable ================
 set(TEST_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/test_main.cpp)
 add_executable(popl_test ${TEST_SOURCES})
+
+set_target_properties(popl_test
+    PROPERTIES
+    ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin"
+    LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin"
+    RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin"
+)
+
 configure_file(test.conf ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
-target_link_libraries(popl_test Catch)
 
 # ================ Third Party libraries ================
 # Here we configure the libraries that are stored under the "third-party" folders.

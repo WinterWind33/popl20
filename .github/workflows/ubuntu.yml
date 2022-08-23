@@ -27,3 +27,6 @@ jobs:
 
     - name: CMake Build
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+
+    - name: Functional Tests
+      run: ./bin/popl_test.exe --order rand [functional]

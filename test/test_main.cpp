@@ -45,7 +45,9 @@ TEST_CASE("config file", "[functional][configuration-file-options]")
 
     try
     {
-        op.parse("test.conf");
+        // NOTE: this is temporary, this test needs improvements
+        // and the SUT needs to be well isolated.
+        op.parse("./../../test/test.conf");
         REQUIRE(int_option->is_set() == true);
         REQUIRE(int_option->count() == 1);
         REQUIRE(int_option->value() == 23);

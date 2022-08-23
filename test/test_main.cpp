@@ -1,19 +1,19 @@
 /***
     This file is part of popl (program options parser lib)
     Copyright (C) 2015-2021 Johannes Pohl
+    Copyright (C) 2022 Andrea Ballestrazzi
 
     This software may be modified and distributed under the terms
     of the MIT license.  See the LICENSE file for details.
 ***/
 
-#define CATCH_CONFIG_MAIN
-#include "catch.hpp"
+#include <catch2/catch_test_macros.hpp>
 #include "popl.hpp"
 
 using namespace popl;
 using namespace std;
 
-TEST_CASE("command line")
+TEST_CASE("command line", "[functional][command-line-options]")
 {
     OptionParser op("Allowed options");
     std::vector<const char*> args = {"popl", "-h"};
@@ -36,7 +36,7 @@ TEST_CASE("command line")
 }
 
 
-TEST_CASE("config file")
+TEST_CASE("config file", "[functional][configuration-file-options]")
 {
     OptionParser op("Allowed options");
     auto int_option = op.add<Value<int>>("i", "section.integer", "test for int value", 42);

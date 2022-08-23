@@ -10,11 +10,11 @@
 #include <catch2/catch_test_macros.hpp>
 #include "popl.hpp"
 
-using namespace popl;
-using namespace std;
-
 TEST_CASE("command line", "[functional][command-line-options]")
 {
+    using namespace popl;
+    using namespace std;
+
     OptionParser op("Allowed options");
     std::vector<const char*> args = {"popl", "-h"};
 
@@ -35,9 +35,11 @@ TEST_CASE("command line", "[functional][command-line-options]")
     }
 }
 
-
 TEST_CASE("config file", "[functional][configuration-file-options]")
 {
+    using namespace popl;
+    using namespace std;
+
     OptionParser op("Allowed options");
     auto int_option = op.add<Value<int>>("i", "section.integer", "test for int value", 42);
 

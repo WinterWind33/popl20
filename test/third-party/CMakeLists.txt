@@ -13,4 +13,10 @@ if(USE_CATCH2_AS_TESTING_FRAMEWORK)
     )
 
     FetchContent_MakeAvailable(Catch2)
+
+    set(CATCH_DEVELOPMENT_BUILD ON)
+
+    # We add the include directory to popl_test target so its files
+    # can include Catch2 headers.
+    target_include_directories(popl_test PUBLIC "Catch2/src")
 endif()

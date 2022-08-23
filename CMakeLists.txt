@@ -15,7 +15,7 @@ cmake_minimum_required(VERSION 3.18)
 # ================ COMPILATION CONFIGURATIONS ================
 # This is required as some compilers don't support concepts
 # automatically (like g++).
-if(NOT MSVC)
+if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     message("[INFO] => Compiling with -fconcepts.")
     add_compile_options(-fconcepts)
 endif()

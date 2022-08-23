@@ -52,6 +52,8 @@ add_subdirectory(example)
 endif (BUILD_EXAMPLE)
 
 if (BUILD_TESTS)
+option(USE_CATCH2_AS_TESTING_FRAMEWORK "Use Catch2 as testing framework" ON)
+
 add_subdirectory(test)
 endif (BUILD_TESTS)
 

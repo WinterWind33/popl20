@@ -1,0 +1,26 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "[DEBUG] (Testing) Launch popl20 Tests",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "cwd": "${workspaceRoot}/test",
+            "program": "${workspaceRoot}/bin/Debug/popl_test",
+            "args": [
+                "-b",
+                "-s"
+            ],
+            "preLaunchTask": "[BUILD][Debug] Build Tests",
+            "presentation": {
+                "hidden": false,
+                "group": "Tests",
+                "order": 1
+            },
+            "console": "externalTerminal"
+        }
+    ]
+}

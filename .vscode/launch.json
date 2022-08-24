@@ -19,8 +19,7 @@
                 "hidden": false,
                 "group": "Tests",
                 "order": 1
-            },
-            "externalConsole": true
+            }
         }
     ]
 }

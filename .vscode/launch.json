@@ -6,10 +6,10 @@
     "configurations": [
         {
             "name": "[DEBUG] (Testing) Launch popl20 Tests",
-            "type": "cppvsdbg",
+            "type": "cppdbg",
             "request": "launch",
             "cwd": "${workspaceRoot}/test",
-            "program": "${workspaceRoot}/bin/Debug/popl_test",
+            "program": "${workspaceRoot}/test/popl_test",
             "args": [
                 "-b",
                 "-s"
@@ -20,7 +20,7 @@
                 "group": "Tests",
                 "order": 1
             },
-            "console": "externalTerminal"
+            "externalConsole": true
         }
     ]
 }

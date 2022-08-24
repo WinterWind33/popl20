@@ -5,11 +5,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "[DEBUG] (Testing) Launch popl20 Tests",
+            "name": "[LINUX] (Testing) Launch popl20 Tests",
             "type": "cppdbg",
             "request": "launch",
-            "cwd": "${workspaceRoot}/test",
-            "program": "${workspaceRoot}/test/popl_test",
+            "cwd": "${workspaceRoot}/bin",
+            "program": "${workspaceRoot}/bin/popl_test",
             "args": [
                 "-b",
                 "-s"
@@ -20,6 +20,24 @@
                 "group": "Tests",
                 "order": 1
             }
+        },
+        {
+            "name": "[WINDOWS] (Testing) Launch popl20 Tests",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "cwd": "${workspaceRoot}/bin",
+            "program": "${workspaceRoot}/bin/popl_test",
+            "args": [
+                "-b",
+                "-s"
+            ],
+            "preLaunchTask": "[BUILD][Debug] Build Tests",
+            "presentation": {
+                "hidden": false,
+                "group": "Tests",
+                "order": 1
+            },
+            "console": "externalTerminal"
         }
     ]
 }

@@ -15,6 +15,19 @@ set_target_properties(popl_test
     RUNTIME_OUTPUT_DIRECTORY "${POPL_TEST_BIN_DIR}"
 )
 
+if(MSVC)
+    # Under Windows there is also the Debug folder that
+    # is created during the compilation. We don't want that
+    # so we can have an uniform folder configuration accross
+    # platforms.
+    set_target_properties(popl_test
+        PROPERTIES
+        ARCHIVE_OUTPUT_DIRECTORY_DEBUG "${PROJECT_SOURCE_DIR}/lib"
+        LIBRARY_OUTPUT_DIRECTORY_DEBUG "${PROJECT_SOURCE_DIR}/lib"
+        RUNTIME_OUTPUT_DIRECTORY_DEBUG "${POPL_TEST_BIN_DIR}"
+    )
+endif()
+
 target_include_directories(popl_test PUBLIC "${PROJECT_SOURCE_DIR}/include")
 
 # ================ Third Party libraries ================

@@ -2,7 +2,7 @@
 
 add_executable(popl_example popl_example.cpp)
 
-target_include_directories(popl_example PUBLIC "${PROJECT_SOURC_DIR}/include")
+target_include_directories(popl_example PUBLIC "${PROJECT_SOURCE_DIR}/include")
 
 set_target_properties(popl_example
     PROPERTIES

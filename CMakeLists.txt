@@ -48,20 +48,21 @@ if(NOT DEFINED CMAKE_INSTALL_INCLUDEDIR)
         PATH "Output directory for header files")
 endif()
 
-
-include_directories(
-	"include"
-)
-
 install(FILES include/popl.hpp DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}")
 
 if (BUILD_EXAMPLE)
-add_subdirectory(example)
+    add_subdirectory(example)
 endif (BUILD_EXAMPLE)
 
 if (BUILD_TESTS)
-option(USE_CATCH2_AS_TESTING_FRAMEWORK "Use Catch2 as testing framework" ON)
+    option(USE_CATCH2_AS_TESTING_FRAMEWORK "Use Catch2 as testing framework" ON)
 
-add_subdirectory(test)
+    # Here we need to create the bin directory here because this
+    # will otherwise exists only after a succesfull operation. If we
+    # put the configuration file now without the bin directory,
+    # there will be an error.
+    file(MAKE_DIRECTORY "/bin/")
+
+    add_subdirectory(test)
 endif (BUILD_TESTS)
 

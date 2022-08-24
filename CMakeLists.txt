@@ -19,8 +19,16 @@ project(popl_example)
 # This is required as some compilers don't support concepts
 # automatically (like g++).
 if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-    message("[INFO] => Compiling with: -fconcepts, -g")
-    add_compile_options(-fconcepts -g)
+    message("[INFO] => Compiling with: -fconcepts.")
+    add_compile_options(-fconcepts)
+endif()
+
+if(NOT MSVC)
+    message("[INFO] => Adding -g option.")
+
+    # With clang or gcc we need this option in order to debug the
+    # project.
+    add_compile_options(-g)
 endif()
 
 set(CMAKE_CXX_STANDARD 20)

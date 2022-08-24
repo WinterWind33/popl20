@@ -29,7 +29,4 @@ jobs:
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
     - name: Functional Tests
-      # NOTE: The first copy is done in order to have the test.conf file in the same directory as
-      # popl_test executable file. This is a temporary hotfix for the functional test that uses
-      # this file. More work is needed here.
-      run: cp ./test/test.conf ./bin && ./bin/popl_test --order rand [functional]
+      run: ./test/popl_test --order rand [functional]

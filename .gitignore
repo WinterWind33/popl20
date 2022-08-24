@@ -474,4 +474,5 @@ FodyWeavers.xsd
 ### Custom rules ###
 *.*~
 popl_example
+popl_test
 build

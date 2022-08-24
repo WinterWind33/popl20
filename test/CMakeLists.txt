@@ -4,14 +4,14 @@
 set(TEST_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/test_main.cpp)
 add_executable(popl_test ${TEST_SOURCES})
 
+configure_file(test.conf "${PROJECT_SOURCE_DIR}/bin" COPYONLY)
+
 set_target_properties(popl_test
     PROPERTIES
     ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/lib"
     LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/lib"
     RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/test"
 )
-
-configure_file(test.conf ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
 
 # ================ Third Party libraries ================
 # Here we configure the libraries that are stored under the "third-party" folders.

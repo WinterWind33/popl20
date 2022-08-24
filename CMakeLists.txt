@@ -61,7 +61,7 @@ if (BUILD_TESTS)
     # will otherwise exists only after a succesfull operation. If we
     # put the configuration file now without the bin directory,
     # there will be an error.
-    file(MAKE_DIRECTORY "/bin/")
+    file(MAKE_DIRECTORY "./bin/")
 
     add_subdirectory(test)
 endif (BUILD_TESTS)

@@ -16,6 +16,7 @@ jobs:
       matrix:
         os: [windows-latest, macos-latest]
 
+    runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/setup-node@v3
 

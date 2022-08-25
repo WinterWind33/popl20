@@ -1,6 +1,6 @@
 # Copyright (C) 2022 Andrea Ballestrazzi
 
-name: Windows Build
+name: Windows and macOS Build
 
 on:
   push:
@@ -11,10 +11,14 @@ env:
   BUILD_TYPE: Release
 
 jobs:
-  build:
-    runs-on: windows-latest
+  build_matrix:
+    strategy:
+      matrix:
+        os: [windows-latest, macos-latest]
 
     steps:
+    - uses: actions/setup-node@v3
+
     - uses: actions/checkout@v3
 
     - name: CMake Configure

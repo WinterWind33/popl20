@@ -8,7 +8,7 @@
 ***/
 
 #include <catch2/catch_test_macros.hpp>
-#include "popl.hpp"
+#include <popl.hpp>
 
 TEST_CASE("command line", "[functional][command-line-options]")
 {

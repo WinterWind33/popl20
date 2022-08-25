@@ -1,15 +1,43 @@
 # popl20
 
-**!!NOTE: This is a fork of [popl repo](https://github.com/badaix/popl) and it's WIP!!**
-
-Program Options Parser Library
+popl20 is a fork of [popl repo](https://github.com/badaix/popl) that aims to bring the same idea of the original project but rewritten with a more modern style, following the C++ 20 standard.
 
 popl is a C++ command line arguments parser that supports the same set of options as GNU's `getopt` and thus closely follows the POSIX guidelines for the command-line options of a program.
+
+## The popl20 refactor
+
+What is being developed in this forked repository is essentially a refactor of popl where the same features are rewritten using C++20.
+
+The refactor is carried on following the roadmap:
+
+1. [X] Initial update with build system refactoring, workflow setup, VS Code configuration files setup and test framework in place;
+
+1. [ ] Analysis of the features and test suite with a full code coverage (Unit, Integration and Functional tests);
+
+1. [ ] Refactor of the library using C++20;
+
+These are the main objective that this repo wants to reach, these can be unpacked into sub-tasks.
+
+### More tests
+
+Of course, since this is a refactor it's unpleasant to have regressions and bugs during or after the refactor so there is a need to cover the production code with more tests than there are now, so there can be a [safety net](http://xunitpatterns.com/Goals%20of%20Test%20Automation.html#:~:text=Goal%3A%20Tests%20as%20Safety%20Net) against regressions.
+
+To achieve a great test suite, dependencies need to be broken down: there could be changes in this respect inside the API. Breaking changes are not fun, so if there will be the need to change something, deprecation will be the preferred route.
+
+An objective that this refactor wants to achieve is [Tests as Documentation](http://xunitpatterns.com/Goals%20of%20Test%20Automation.html#:~:text=Tests%20should%20help%20us%20understand%20the%20SUT): anyone who wants to use this library can understand how it works by looking at unit tests.
+
+### New features
+
+There is a chance that during the refactor some new features can be added but with retro-compatibility of the previous ones in mind.
+
+Possible new features:
+
+1. [ ] (Not confirmed) More char types support;
 
 ## Features
 
 * Single header file implementation. Simply include and use it!
-* No external dependencies, just C++11
+* No external dependencies (in production code), just C++20
 * Platform independent
 * Supports the same set of options as GNU's `getopt`: short options, long options, non-option arguments, ...
 * Supports parsing of `ini` files
@@ -88,7 +116,7 @@ Options have an `Attribute`: they can be hidden in the auto-created help message
 ```C++
 auto string_option = op.add<Value<std::string>>("s", "string", "some string value");
 auto advanced_int  = op.add<Value<int>, Attribute::advanced>("i", "integer", "advanced integer value");
-auto hidden_bool   = op.add<Swtich, Attribute::hidden>("", "hidden", "hidden flag");
+auto hidden_bool   = op.add<Switch, Attribute::hidden>("", "hidden", "hidden flag");
 ```
 
 Now `cout << op.help()` (same as `cout << op`) will not show the hidden or advanced option, while `cout << op.help(Attribute::advanced)` will show the advanced option. The hidden one is never shown to the user.
@@ -148,7 +176,7 @@ int main(int argc, char **argv)
 	cout << "string_option   - is_set: " << string_option->is_set() << ", count: " << string_option->count() << "\n";
 	if (string_option->is_set())
 	{
-	  	for (size_t n=0; n<string_option->count(); ++n)
+		for (size_t n=0; n<string_option->count(); ++n)
 			cout << "string_option #" << n << " - value: " << string_option->value(n) << "\n";
 	}
 	cout << "float_option    - is_set: " << float_option->is_set() << ", value: " << float_option->value() << ", reference: " << f << "\n";

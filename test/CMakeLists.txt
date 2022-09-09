@@ -1,7 +1,10 @@
 # Copyright (C) 2022 Andrea Ballestrazzi
 
 # ================ Test Executable ================
-set(TEST_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/test_main.cpp)
+set(
+    TEST_SOURCES
+    "${CMAKE_CURRENT_SOURCE_DIR}/test_main.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/value_test.cpp")
 add_executable(popl_test ${TEST_SOURCES})
 
 set(POPL_TEST_BIN_DIR "${PROJECT_SOURCE_DIR}/bin")

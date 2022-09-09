@@ -28,5 +28,8 @@ jobs:
     - name: CMake Build
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
+    - name: Unit Tests
+      run: cd ./bin && ./popl_test --order rand [unit]
+
     - name: Functional Tests
       run: cd ./bin && ./popl_test --order rand [functional]
